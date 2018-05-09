@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        };
+        Person.prototype.hi = function() {
+            alert("hello,my name is " + this.name + " I am " + this.age + " years old ");
+        };
+        Person.prototype.LEG_NUMS = 2;
+        Person.prototype.ARMS_NUMS = 2;
+        Person.prototype.walk = function() {
+            alert(this.name + " is walking...");
+        };
+
+        function Student(name, age, className) {
+            Person.call(this, name, age);
+            this.className = className;
+        };
+        Student.prototype = Object.create(Person.prototype);
+        Student.prototype.constructor = Student;
+        Student.prototype.hi = function() {
+            alert("hello,I am " + this.name + " I am" + this.className);
+        };
+        Student.prototype.learn = function(subject) {
+            this.subject = subject;
+            alert("I am learning " + this.subject);
+        };
+        var Rose = new Student("Rose", 20, "Grade 2 Class 4");
+        Rose.hi();
+        Rose.learn("javascript");
+        Rose.LEG_NUMS;
+        Rose.walk();
+    </script>
+</body>
+
+</html>
