@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <script>
+        function superType(name) {
+            this.name = name;
+        };
+
+        function subType() {
+            //继承了superType,同时还传递了参数；
+            this.class = "class1604";
+            //实例属性
+            superType.call(this, "Rose");
+        };
+        var instance = new subType();
+        alert(instance.class);
+        alert(instance.name);
+    </script>
+</body>
+
+</html>
