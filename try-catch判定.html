@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <p>请输入5-10间的一个数字：
+        <input type="text" name="" id="demo">;
+        <input type="button" value="提交" onclick="c()">
+    </p>
+    <p id="message"></p>
+    <script>
+        function c() {
+            var num = document.getElementById("demo").value;
+            var message = document.getElementById("message");
+            message.innerHTML = "";
+            try {
+                if (num == "")
+                    throw "输入不能为空";
+                if (isNaN(num))
+                    throw "请输入一个数字";
+                if (num > 10)
+                    throw "输入的数字>10";
+                if (num < 5)
+                    throw "输入的数字<5";
+            } catch (error) {
+                message.innerHTML = error;
+            }
+        };
+    </script>
+</body>
+
+</html>
