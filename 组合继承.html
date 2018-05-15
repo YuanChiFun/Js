@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <script>
+        function superType(name) {
+            this.name = name;
+            this.colors = ["red", "black", "green"];
+        };
+        superType.prototype.sayName = function() {
+            alert(this.name);
+        };
+
+        function subType(name, age) {
+            //继承属性
+            superType.call(this, name);
+            this.age = age;
+        }
+        //继承方法
+        subType.prototype = new superType();
+        subType.prototype.constructor = subType;
+        subType.prototype.sayAge = function() {
+            alert(this.age);
+        }
+        var instance = new subType("Rose", 20);
+        instance.colors.push("gray");
+        console.log(instance.colors);
+        instance.sayAge();
+        instance.sayName();
+    </script>
+</body>
+
+</html>
