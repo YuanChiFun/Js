@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <script>
+        //原型式继承
+        function object(o) {
+            function F() {}; //先创建一个临时性构造函数
+            F.prototype = o; //将传入的对象作为这个构造函数的原型
+            return new F(); //返回这个临时类型的一个新实例
+        };
+        //寄生式继承
+        function createAnother(original) {
+            var clone = object(original); //通过调用函数创建一个新对象
+            clone.sayHi = function() { //以某种方式来增强这个对象
+                alert("hi");
+            };
+            return clone; //返回这个对象
+        };
+        var person = {
+            name: "Rose",
+            friends: ["Nash", "Kobe"]
+        };
+
+        function Person() {
+            name = "ROse";
+            friends = ["Nash", "Kobe"];
+        };
+        var another = createAnother(person);
+        another.sayHi();
+        var b = createAnother(Person);
+        b.sayHi();
+    </script>
+</body>
+
+</html>
